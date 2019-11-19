@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
+import HOCComponent from './HOCComponent';
 
-export default class ClassComponent extends Component {
+class ClassComponent extends Component {
 
   constructor(props) {
     super(props);
@@ -29,3 +30,5 @@ export default class ClassComponent extends Component {
     )
   }
 }
+
+export default HOCComponent(ClassComponent);
