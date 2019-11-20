@@ -17,7 +17,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
-import useAppState from "./store/useAppState"
+import { useAppState } from "./store/useAppState"
 import { Button } from '@material-ui/core';
 const drawerWidth = 240;
 
@@ -140,16 +140,7 @@ export default function App() {
         </div>
         <Divider />
         <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
-        <Divider />
-        <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
+          {['Inbox'].map((text, index) => (
             <ListItem button key={text}>
               <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
               <ListItemText primary={text} />
@@ -165,7 +156,10 @@ export default function App() {
         <div className={classes.drawerHeader} />
         <span>{state.count}</span>
         <Button variant="contained" className={classes.button} onClick={actions.increment}>
-          Default
+          Increment
+        </Button>
+        <Button variant="contained" className={classes.button} onClick={actions.decrement}>
+          Decrement
         </Button>
         {
           state.posts.map((post, index) => {

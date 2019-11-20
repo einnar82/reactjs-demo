@@ -1,9 +1,14 @@
-import { useState, useMemo } from 'react'
+import React, { useState, useMemo, useContext } from 'react'
 import httpClient from '../utils/network'
 
+const AppContext = React.createContext({})
 /**
  * Our custom React hook to manage state
  */
+
+const useAppContext = () => {
+  return useContext(AppContext)
+}
 
 const useAppState = () => {
   const initialState = { count: 0, posts: [] }
@@ -38,4 +43,4 @@ const getActions = setState => ({
   }
 })
 
-export default useAppState;
+export { AppContext, useAppState, useAppContext };
